@@ -1,7 +1,7 @@
 import { Bell, Check, ChevronDown, Search, X } from 'lucide-react';
 import type { ReactNode } from 'react';
 import type { Status } from '../types';
-export const StatusBadge=({value}:{value:Status|string})=><span className={'badge '+String(value).toLowerCase().replaceAll(' ','-')}>{value}</span>;
+export const StatusBadge=({value}:{value:Status|string})=><span className={'badge '+String(value).toLowerCase().replace(/\s/g,'-')}>{value}</span>;
 export const Card=({children,className='' }:{children:ReactNode,className?:string})=><section className={'card '+className}>{children}</section>;
 export const Stat=({label,value,delta,icon}:{label:string;value:string;delta:string;icon:ReactNode})=><Card className="stat"><div className="stat-icon">{icon}</div><div><p>{label}</p><h2>{value}</h2><small>{delta}</small></div></Card>;
 export const SearchFilter=({value,onChange}:{value:string;onChange:(v:string)=>void})=><div className="search"><Search size={18}/><input value={value} onChange={e=>onChange(e.target.value)} placeholder="Search complaints, residents..."/></div>;
